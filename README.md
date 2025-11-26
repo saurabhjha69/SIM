@@ -190,26 +190,92 @@ Modularized → easier scaling ➜ add roles, permissions, more entities!
 
 ---
 
-## 🎯 What This Project Demonstrates
+# Frontend
 
-✔ Secure user authentication
-✔ Protecting private data
-✔ RESTful API design
-✔ Validations & error handling
-✔ Full-stack integration foundation
-✔ Scalable and maintainable codebase
+## 🚀 Setup & Installation
+
+### 1️⃣ Install Dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+### 2️⃣ Setup Environment Variables
+
+Create `.env` in `frontend/`
+
+```
+VITE_API_URL=http://localhost:5000/api
+```
+
+This connects React → Node backend.
+
+### 3️⃣ Run the Frontend
+
+```bash
+npm run dev
+```
+
+Open: 👉 `http://localhost:5173` *(Vite default)*
 
 ---
 
-## 📌 Next Targets (Frontend Work)
+## 🗂️ Project Structure
 
-* 🔐 Login/Register pages
-* 🛡 Protected dashboard routes
-* 📊 Task CRUD UI with filtering
-* 💾 Axios service layer for backend API calls
-* 🎨 Tailwind UI polished design
+```
+frontend/
+ ├─ src/
+ │  ├─ api/            # axios client + requests
+ │  ├─ auth/           # AuthContext (+ hooks)
+ │  ├─ components/     # Reusable UI components
+ │  ├─ pages/          # Login, Register, Dashboard, Task CRUD
+ │  ├─ routes/         # ProtectedRoute wrapper
+ │  ├─ hooks/          # Custom hooks (auth, form)
+ │  ├─ App.jsx
+ │  └─ main.jsx
+ ├─ public/
+ ├─ index.html
+ ├─ tailwind.config.js
+ └─ package.json
+```
 
-> You can ask me anytime — I will help you complete and deploy the frontend too! 🚀
+This structure ensures scalability for new modules/features.
+
+---
+
+## 🔐 Authentication Flow
+
+| Step       | Mechanism                                         |
+| ---------- | ------------------------------------------------- |
+| Login      | Sends credentials → backend returns JWT           |
+| Storage    | Token stored in localStorage                      |
+| Requests   | Axios adds `Authorization: Bearer <token>`        |
+| Protection | ProtectedRoute checks token & redirect if missing |
+| Logout     | Clears token + redirects to login                 |
+
+---
+
+## 🔗 Available Frontend Routes
+
+| Route        | Access    | Description        |
+| ------------ | --------- | ------------------ |
+| `/login`     | Public    | Login page         |
+| `/register`  | Public    | Signup page        |
+| `/dashboard` | Protected | Profile & tasks    |
+| `/tasks`     | Protected | List & CRUD screen |
+
+---
+
+## 🔥 Future Enhancements
+
+| Feature                   | Status     |
+| ------------------------- | ---------- |
+| Refresh tokens            | 🔜 Planned |
+| Role-based access control | 🔜 Planned |
+| Pagination on tasks       | 🔜 Planned |
+| Optimistic UI updates     | 🔜 Planned |
+| Dark mode toggle          | Optional   |
 
 ---
 
